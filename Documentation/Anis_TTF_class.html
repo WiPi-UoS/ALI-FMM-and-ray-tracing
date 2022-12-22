@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALI-FMM and Ray Tracing Class &mdash; Anisotropic Traveltime Fields and Ray Tracing 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Module Functions" href="Anis_TTF_functions.html" />
+    <link rel="prev" title="Getting Started" href="setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="Main.html" class="icon icon-home"> Anisotropic Traveltime Fields and Ray Tracing
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ALI-FMM and Ray Tracing Class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.ALI_FMM"><code class="docutils literal notranslate"><span class="pre">ALI_FMM</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Anis_TTF_rays.ALI_FMM.__init__"><code class="docutils literal notranslate"><span class="pre">ALI_FMM.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Anis_TTF_rays.ALI_FMM.add_materials"><code class="docutils literal notranslate"><span class="pre">ALI_FMM.add_materials()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Anis_TTF_rays.ALI_FMM.find_all_TTF_rays"><code class="docutils literal notranslate"><span class="pre">ALI_FMM.find_all_TTF_rays()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Anis_TTF_rays.ALI_FMM.find_all_TTF_rays_parallel"><code class="docutils literal notranslate"><span class="pre">ALI_FMM.find_all_TTF_rays_parallel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Anis_TTF_rays.ALI_FMM.generate_group_vel"><code class="docutils literal notranslate"><span class="pre">ALI_FMM.generate_group_vel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Anis_TTF_rays.ALI_FMM.generate_phase_vel"><code class="docutils literal notranslate"><span class="pre">ALI_FMM.generate_phase_vel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Anis_TTF_rays.ALI_FMM.plot_group"><code class="docutils literal notranslate"><span class="pre">ALI_FMM.plot_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Anis_TTF_rays.ALI_FMM.plot_phase"><code class="docutils literal notranslate"><span class="pre">ALI_FMM.plot_phase()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Anis_TTF_rays.ALI_FMM.ray_path"><code class="docutils literal notranslate"><span class="pre">ALI_FMM.ray_path()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Anis_TTF_rays.ALI_FMM.update"><code class="docutils literal notranslate"><span class="pre">ALI_FMM.update()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Anis_TTF_rays.ALI_FMM.update_i"><code class="docutils literal notranslate"><span class="pre">ALI_FMM.update_i()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Anis_TTF_rays.ALI_FMM.update_parallel"><code class="docutils literal notranslate"><span class="pre">ALI_FMM.update_parallel()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Anis_TTF_functions.html">Module Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="JupyterNotebook.html">Jupyter Notebook</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="Main.html">Anisotropic Traveltime Fields and Ray Tracing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="Main.html" class="icon icon-home"></a> &raquo;</li>
+      <li>ALI-FMM and Ray Tracing Class</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Anis_TTF_class.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="toctree-wrapper compound">
+</div>
+<section id="ali-fmm-and-ray-tracing-class">
+<span id="alifmmclass"></span><h1>ALI-FMM and Ray Tracing Class<a class="headerlink" href="#ali-fmm-and-ray-tracing-class" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ALI_FMM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">ALI_FMM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_vel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase_vel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ALI_FMM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ALI_FMM" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for calculating travel time fields and performing ray tracing through the travel time fields.</p>
+<blockquote>
+<div><dl class="py method">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ALI_FMM.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_vel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase_vel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ALI_FMM.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ALI_FMM.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Function to initialise class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic material orientations at grid points. Set as array of zeros if using isotropic materials.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of each grid point (0 if using stiffness tensors and density, otherwise index for column in velocity table).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Velocity scaling parameters for each grid point. Use array of ones for anisotropic materials, or array of velocities for isotropic materials.</p></li>
+<li><p><strong>scx</strong> (<em>1D numpy array</em>) – numpy array of x coordinates for sources/recievers.</p></li>
+<li><p><strong>scz</strong> (<em>1D numpy array</em>) – numpy array of z coordinates for sources/recievers.</p></li>
+<li><p><strong>group_vel</strong> (<em>2D numpy array</em>) – Group velocity curves with first column giving the angle (0-360 with increments of 1 degree) and other columns group velocities for each material(column is material indecies). If parameter is unused then defalts to velocity curve for isotropic material with velocity of 1(use vel_map to scale curve to set velocities at each point)</p></li>
+<li><p><strong>phase_vel</strong> (<em>2D numpy array</em>) – Phase velocity curves with first column giving the angle (0-360 with increments of 1 degree) and other columns phase velocities for each material(column is material indecies). If parameter is unused then defalts to velocity curve for isotropic material with velocity of 1(use vel_map to scale curve to set velocities at each point)</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type np.int64</em>) – Stifness tensors at each grid point. First two indecies are the position of the grid point and 3rd index is for the materials parameters, 0 - c_22, 1 - c_23, 2 - c_33, 3 - c_44, 4 - density. Array must use 64 bit integers with stiffness tensors in MPa and density in Kg/m^3. To use these values the material index of grid points should be 0. If a point is not using stiffness tensors and density the values are not used. If parameter not used, velocity curves will be used instead (don’t set material index to 0).</p></li>
+<li><p><strong>dnx</strong> (<em>float</em>) – Spacing between each point in metres, defalts as 1e-3.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>TypeError</strong> – Creates error if velpn is not array of integers</p></li>
+<li><p><strong>TypeError</strong> – Creates error if stiffness tensors are not the correct type (np.int64). Does not create error if stifness tensors are not being used (None used)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div></blockquote>
+<dl class="py method">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ALI_FMM.add_materials">
+<span class="sig-name descname"><span class="pre">add_materials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">materials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_materials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ALI_FMM.add_materials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ALI_FMM.add_materials" title="Permalink to this definition"></a></dt>
+<dd><p>Function for adding materials using stiffness tensors and density of materials. Prints the material indices of materials if existing materials are kept.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>materials</strong> (<em>1D array/2D array</em>) – Material properties(stiffness tensors and density) for materials. Either array for single material or 2D array for multiple materials.</p></li>
+<li><p><strong>keep_materials</strong> (<em>bool</em>) – Whether the current materials in the class are kept when adding materials or deleted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing is returned. Materials are added into class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ALI_FMM.find_all_TTF_rays">
+<span class="sig-name descname"><span class="pre">find_all_TTF_rays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subgrid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trans_pairs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_rays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ALI_FMM.find_all_TTF_rays"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ALI_FMM.find_all_TTF_rays" title="Permalink to this definition"></a></dt>
+<dd><p>Computes travel time fields for required receivers and performs ray tracing between source and receiver pairs. Returns travel times, however ray paths can be obtained using the function ray_path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic material orientations at grid points. Set as array of zeros if using isotropic materials.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of each grid point (0 if using stiffness tensors and density, otherwise index for column in velocity table).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Velocity scaling parameters for each grid point. Use array of ones for anisotropic materials, or array of velocities for isotropic materials. If unused then an array of ones is used.</p></li>
+<li><p><strong>subgrid_size</strong> (<em>int</em>) – Parameter for computing travel time field on finer grid (must be a odd number), multiply indices by subgrid_size to move between indices on original grid. Default value is set to 1 i.e same as original grid.</p></li>
+<li><p><strong>trans_pairs</strong> (<em>2D numpy array</em>) – Transducer pairs where ray tracing is being performed (0 - No ray, 1 - compute ray). If parameter not used then all rays calculated(only one ray calculated per transducer pair i.e transducer is either source or receiver).</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type int64</em>) – Stiffness tensors at each grid point. First two indices are the position of the grid point and 3rd index is for the materials parameters, 0 - c_22, 1 - c_23, 2 - c_33, 3 - c_44, 4 - density. Array must use 64 bit integers with stiffness tensors in MPa and density in Kg/m^3. To use these values the material index of grid points should be 0. If a point is not using stiffness tensors and density the values are not used. If parameter not used, velocity curves will be used instead (don’t set material index to 0).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Travel times along the ray paths. When the path is not calculated the value is 0.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ALI_FMM.find_all_TTF_rays_parallel">
+<span class="sig-name descname"><span class="pre">find_all_TTF_rays_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subgrid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trans_pairs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_rays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ALI_FMM.find_all_TTF_rays_parallel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ALI_FMM.find_all_TTF_rays_parallel" title="Permalink to this definition"></a></dt>
+<dd><p>Computes travel time fields for required receivers and performs ray tracing between source and receiver pairs using parallelisation. Returns travel times, however ray paths can be obtained using the function ray_path. Each ray path is calculated in the same process as the receiver travel time field.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Use __name__ == “__main__” in order to run in parallel.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic material orientations at grid points. Set as an array of zeros if using isotropic materials.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of each grid point (0 if using stiffness tensors and density, otherwise index for column in velocity table).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Velocity scaling parameters for each grid point. Use array of ones for anisotropic materials, or array of velocities for isotropic materials. If unused then a array of ones is used.</p></li>
+<li><p><strong>subgrid_size</strong> (<em>int</em>) – Parameter for computing travel time field on finer grid (must be a odd number), multiply indices by subgrid_size to move between indices on original grid. Default value is set to 1 i.e same as original grid.</p></li>
+<li><p><strong>trans_pairs</strong> (<em>2D numpy array</em>) – Transducer pairs where ray tracing is being performed (0 - No ray, 1 - compute ray). If parameter not used then all rays calculated(only one ray calculated per transducer pair i.e transducer is either source or receiver). Leading diagonal must have zeros.</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type np.int64</em>) – Stiffness tensors at each grid point. First two indices are the position of the grid point and 3rd index is for the materials parameters, 0 - c_22, 1 - c_23, 2 - c_33, 3 - c_44, 4 - density. Array must use 64 bit integers with stiffness tensors in MPa and density in Kg/m^3. To use these values the material index of grid points should be 0. If a point is not using stiffness tensors and density the values are not used. If parameter not used, velocity curves will be used instead (don’t set material index to 0).</p></li>
+<li><p><strong>n_threads</strong> (<em>int</em>) – Number of threads to be used.</p></li>
+<li><p><strong>save_rays</strong> (<em>bool</em>) – Boolean value for if rays should be saved into class (rays can be obtained using ray_path function).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Travel times along the ray paths. When the path is not calculated the value is 0.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ALI_FMM.generate_group_vel">
+<span class="sig-name descname"><span class="pre">generate_group_vel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_22</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_23</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_33</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_44</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ALI_FMM.generate_group_vel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ALI_FMM.generate_group_vel" title="Permalink to this definition"></a></dt>
+<dd><p>Generates the group velocity curve, given a materials stiffness tensors and density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c_22</strong> (<em>int</em>) – Stiffness Tensor in Pa.</p></li>
+<li><p><strong>c_23</strong> (<em>int</em>) – Stiffness Tensor in Pa.</p></li>
+<li><p><strong>c_33</strong> (<em>int</em>) – Stiffness Tensor in Pa.</p></li>
+<li><p><strong>c_44</strong> (<em>int</em>) – Stiffness Tensor in Pa.</p></li>
+<li><p><strong>density</strong> (<em>int</em>) – Density of the material in Kg/m^3.</p></li>
+<li><p><strong>plot</strong> (<em>bool</em>) – True or False value for whether to plot curve or not. Default is True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array of group velocities from 0 to 360 degrees with increments of 1 degree.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D numpy array</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c_22</span> <span class="o">=</span> <span class="mf">203.6e9</span>
+<span class="n">c_23</span> <span class="o">=</span> <span class="mf">133.5e9</span>
+<span class="n">c_33</span> <span class="o">=</span> <span class="mf">203.6e9</span>
+<span class="n">c_44</span> <span class="o">=</span> <span class="mf">129.8e9</span>
+<span class="n">density</span> <span class="o">=</span> <span class="mi">7874</span>
+
+<span class="n">ALI_FMM</span><span class="o">.</span><span class="n">generate_group_vel</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">c_22</span><span class="p">,</span> <span class="n">c_23</span><span class="p">,</span> <span class="n">c_33</span><span class="p">,</span> <span class="n">c_44</span><span class="p">,</span> <span class="n">density</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/group_vel.png"><img alt="Alternative text" src="_images/group_vel.png" style="width: 400px;" /></a>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ALI_FMM.generate_phase_vel">
+<span class="sig-name descname"><span class="pre">generate_phase_vel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c_22</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_23</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_33</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_44</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ALI_FMM.generate_phase_vel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ALI_FMM.generate_phase_vel" title="Permalink to this definition"></a></dt>
+<dd><p>Generates the phase velocity curve, given a materials stiffness tensors and density.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c_22</strong> (<em>int</em>) – Stiffness Tensor in Pa.</p></li>
+<li><p><strong>c_23</strong> (<em>int</em>) – Stiffness Tensor in Pa.</p></li>
+<li><p><strong>c_33</strong> (<em>int</em>) – Stiffness Tensor in Pa.</p></li>
+<li><p><strong>c_44</strong> (<em>int</em>) – Stiffness Tensor in Pa.</p></li>
+<li><p><strong>density</strong> (<em>int</em>) – Density of the material in Kg/m^3.</p></li>
+<li><p><strong>plot</strong> (<em>bool</em>) – True or False value for whether to plot curve or not. Default is True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array of phase velocities from 0 to 360 degrees with increments of 1 degree.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D numpy array</p>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">c_22</span> <span class="o">=</span> <span class="mf">203.6e9</span>
+<span class="n">c_23</span> <span class="o">=</span> <span class="mf">133.5e9</span>
+<span class="n">c_33</span> <span class="o">=</span> <span class="mf">203.6e9</span>
+<span class="n">c_44</span> <span class="o">=</span> <span class="mf">129.8e9</span>
+<span class="n">density</span> <span class="o">=</span> <span class="mi">7874</span>
+
+<span class="n">ALI_FMM</span><span class="o">.</span><span class="n">generate_phase_vel</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">c_22</span><span class="p">,</span> <span class="n">c_23</span><span class="p">,</span> <span class="n">c_33</span><span class="p">,</span> <span class="n">c_44</span><span class="p">,</span> <span class="n">density</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/phase_vel.png"><img alt="Alternative text" src="_images/phase_vel.png" style="width: 400px;" /></a>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ALI_FMM.plot_group">
+<span class="sig-name descname"><span class="pre">plot_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">material_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ALI_FMM.plot_group"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ALI_FMM.plot_group" title="Permalink to this definition"></a></dt>
+<dd><p>Plots the group velocity curve for a material defined by table of velocities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>material_index</strong> (<em>int</em>) – Index of the material being plotted, default value is 1.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ALI_FMM.plot_phase">
+<span class="sig-name descname"><span class="pre">plot_phase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">material_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ALI_FMM.plot_phase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ALI_FMM.plot_phase" title="Permalink to this definition"></a></dt>
+<dd><p>Plots the phase velocity curve for a material defined by table of velocities.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>material_index</strong> (<em>int</em>) – Index of the material being plotted, default value is 1.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Does not return anything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ALI_FMM.ray_path">
+<span class="sig-name descname"><span class="pre">ray_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ALI_FMM.ray_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ALI_FMM.ray_path" title="Permalink to this definition"></a></dt>
+<dd><p>Function for returning the ray path for a given source and receiver which was calculated in the function find_all_TTF_rays. Will return None values if the path hasn’t been calculated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<em>int</em>) – Source index for the required ray path.</p></li>
+<li><p><strong>j</strong> (<em>int</em>) – Reciever index for the required ray path.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ray_x, ray_y - Arrays for the x and y positions of points in the ray path. If there is no path then None values are returned.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1D numpy array, 1D numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ALI_FMM.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subgrid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ALI_FMM.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ALI_FMM.update" title="Permalink to this definition"></a></dt>
+<dd><p>Function for computing travel time fields from material properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic material orientations at grid points. Set as array of zero if using isotropic materials.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of each grid point (0 if using stiffness tensors and density, otherwise index for column in velocity table).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Values used to scaling velocity for each grid point. Use array of ones for anisotropic materials, or array of velocities for isotropic materials (using material with velocity curve with velocity of 1) . If unused then an array of ones is used.</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type np.int64</em>) – Stiffness tensors at each grid point. First two indices are the position of the grid point and 3rd index is for the materials parameters, 0 - c_22, 1 - c_23, 2 - c_33, 3 - c_44, 4 - density. Array must use 64 bit integers with stiffness tensors in MPa and density in Kg/m^3. To use these values the material index of grid points should be 0. If a point is not using stiffness tensors and density the values are not used. If parameter not used, velocity curves will be used instead (don’t set material index to 0).</p></li>
+<li><p><strong>subgrid_size</strong> (<em>int</em>) – Parameter for computing travel time field on finer grid (must be a odd number), multiply indices by subgrid_size to move between indices on original grid. Default value is set to 1 i.e same as original grid.</p></li>
+<li><p><strong>sources</strong> (<em>1D numpy array</em>) – Array of 0’s and 1’s for selecting which sources should be used for calculating travel time fields. If unused all sources will be used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Travel time fields for all sources. If sources parameter used then sources not used return array of zeros.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3D numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ALI_FMM.update_i">
+<span class="sig-name descname"><span class="pre">update_i</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subgrid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ALI_FMM.update_i"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ALI_FMM.update_i" title="Permalink to this definition"></a></dt>
+<dd><p>Function for computing a single travel time field.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_i</strong> (<em>int</em>) – Index of the source.</p></li>
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic material orientations at grid points. Set as array of zeros if using isotropic materials.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of each grid point (0 if using stiffness tensors and density, otherwise index for column in velocity table).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Values used for scaling velocities at each grid point. Use array of ones for anisotropic materials, or array of velocities for isotropic materials.</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type np.int64</em>) – Stiffness tensors at each grid point. First two indices are the position of the grid point and 3rd index is for the materials parameters, 0 - c_22, 1 - c_23, 2 - c_33, 3 - c_44, 4 - density. Array must use 64 bit integers with stiffness tensors in MPa and density in Kg/m^3. To use these values the material index of grid points should be 0. If a point is not using stiffness tensors and density the values are not used. If parameter not used, velocity curves will be used instead (don’t set material index to 0).</p></li>
+<li><p><strong>subgrid_size</strong> (<em>int</em>) – Parameter for computing travel time field on finer grid (must be a odd number), multiply indies by subgrid_size to move between indices on original grid. Default value is set to 1 i.e same as original grid.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Travel time field for the selected source.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ALI_FMM.update_parallel">
+<span class="sig-name descname"><span class="pre">update_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subgrid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_threads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_mem</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ALI_FMM.update_parallel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ALI_FMM.update_parallel" title="Permalink to this definition"></a></dt>
+<dd><p>Function for computing travel time fields from material properties in parallel. Parallelization is only possible for different travel time fields. Since there is a computational cost to setting up parallelization, this is not recommended for small grids as will likely take longer.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Use __name__ == “__main__” in order to run in parallel.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic material orientations at grid points. Set as array of zero if using isotropic materials.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of each grid point (0 if using stiffness tensors and density, otherwise index for column in velocity table).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Values used to scaling velocity for each grid point. Use array of ones for anisotropic materials, or array of velocities for isotropic materials (using material with velocity curve with velocity of 1) . If unused then an array of ones is used.</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type np.int64</em>) – Stiffness tensors at each grid point. First two indices are the position of the grid point and 3rd index is for the materials parameters, 0 - c_22, 1 - c_23, 2 - c_33, 3 - c_44, 4 - density. Array must use 64 bit integers with stiffness tensors in MPa and density in Kg/m^3. To use these values the material index of grid points should be 0. If a point is not using stiffness tensors and density the values are not used. If parameter not used, velocity curves will be used instead (don’t set material index to 0).</p></li>
+<li><p><strong>subgrid_size</strong> (<em>int</em>) – Parameter for computing travel time field on finer grid (must be a odd number), multiply indices by subgrid_size to move between indices on original grid. Default value is set to 1 i.e same as original grid.</p></li>
+<li><p><strong>sources</strong> (<em>1D numpy array</em>) – Array of 0’s and 1’s for selecting which sources should be used for calculating travel time fields. If unused all sources will be used.</p></li>
+<li><p><strong>n_threads</strong> (<em>int</em>) – Number of threads to be used. If n_threads = 1 then use update instead of update parallel.</p></li>
+<li><p><strong>low_mem</strong> (<em>bool</em>) – whether to use less memory or not. True saves travel time fields to directory as “temp_TTF_i.npy”(load using np.load) for TTF i and False saves them in memory.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Travel time fields for all sources. If sources parameter used then sources not used will return array of zeros. If low_mem=True then returns None.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3D numpy array/None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="setup.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Anis_TTF_functions.html" class="btn btn-neutral float-right" title="Module Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, James Ludlam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

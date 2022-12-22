@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module Functions &mdash; Anisotropic Traveltime Fields and Ray Tracing 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Jupyter Notebook" href="JupyterNotebook.html" />
+    <link rel="prev" title="ALI-FMM and Ray Tracing Class" href="Anis_TTF_class.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="Main.html" class="icon icon-home"> Anisotropic Traveltime Fields and Ray Tracing
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Anis_TTF_class.html">ALI-FMM and Ray Tracing Class</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.addtree"><code class="docutils literal notranslate"><span class="pre">addtree()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.downtree"><code class="docutils literal notranslate"><span class="pre">downtree()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.find_ray"><code class="docutils literal notranslate"><span class="pre">find_ray()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.finer_grid_n"><code class="docutils literal notranslate"><span class="pre">finer_grid_n()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.finer_grid_n_2"><code class="docutils literal notranslate"><span class="pre">finer_grid_n_2()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.fouds18_A"><code class="docutils literal notranslate"><span class="pre">fouds18_A()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.group_vel"><code class="docutils literal notranslate"><span class="pre">group_vel()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.min_max_vel"><code class="docutils literal notranslate"><span class="pre">min_max_vel()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.parallel_TTF"><code class="docutils literal notranslate"><span class="pre">parallel_TTF()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.parallel_TTF_finer_grid"><code class="docutils literal notranslate"><span class="pre">parallel_TTF_finer_grid()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.parallel_TTF_rays"><code class="docutils literal notranslate"><span class="pre">parallel_TTF_rays()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.ray_time"><code class="docutils literal notranslate"><span class="pre">ray_time()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.slown_d_slown_stif"><code class="docutils literal notranslate"><span class="pre">slown_d_slown_stif()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.time_between_points"><code class="docutils literal notranslate"><span class="pre">time_between_points()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.travel"><code class="docutils literal notranslate"><span class="pre">travel()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.travel_finer_grid"><code class="docutils literal notranslate"><span class="pre">travel_finer_grid()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.travel_times"><code class="docutils literal notranslate"><span class="pre">travel_times()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.update"><code class="docutils literal notranslate"><span class="pre">update()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.updtree"><code class="docutils literal notranslate"><span class="pre">updtree()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Anis_TTF_rays.wavefront_angle_dist"><code class="docutils literal notranslate"><span class="pre">wavefront_angle_dist()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="JupyterNotebook.html">Jupyter Notebook</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="Main.html">Anisotropic Traveltime Fields and Ray Tracing</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="Main.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Module Functions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Anis_TTF_functions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="toctree-wrapper compound">
+</div>
+<section id="module-functions">
+<h1>Module Functions<a class="headerlink" href="#module-functions" title="Permalink to this heading"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>These functions should be called using the <a class="reference internal" href="Anis_TTF_class.html#Anis_TTF_rays.ALI_FMM" title="Anis_TTF_rays.ALI_FMM"><code class="xref py py-class docutils literal notranslate"><span class="pre">ALI_FMM</span></code></a> class and not called directly.</p>
+</div>
+<span class="target" id="module-Anis_TTF_rays"></span><dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.addtree">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">addtree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ttn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#addtree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.addtree" title="Permalink to this definition"></a></dt>
+<dd><p>Function for adding a new value to the minimum heap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iz</strong> (<em>int</em>) – z index of point being added to heap.</p></li>
+<li><p><strong>ix</strong> (<em>int</em>) – x index of point being added to heap.</p></li>
+<li><p><strong>nsts</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Note status for points in the array. -1 is for unknown point, if point is still in the heap then value is the position in the tree.</p></li>
+<li><p><strong>btg</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Array for storing the positions of points in the min heap.</p></li>
+<li><p><strong>ntr</strong> (<em>int</em>) – Number of points on the min heap.</p></li>
+<li><p><strong>ttn</strong> (<em>2D numpy array</em>) – Current travel times at all points in the grid (0 for “far” points).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>nsts, btg, ntr - Updated values of the parameters nsts, btg and ntr</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D numpy array of type int, 2D numpy array of type int, int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.downtree">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">downtree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nsts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ttn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#downtree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.downtree" title="Permalink to this definition"></a></dt>
+<dd><p>Function for removing the root of the min heap and filtering points into correct positions. Root is replaced by the point at the bottom of the tree and then filtered down.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nsts</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Node status for points in the array. -1 is for unknown point, if point is still in the heap then value is the position in the tree.</p></li>
+<li><p><strong>btg</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Positions of points in the min heap.</p></li>
+<li><p><strong>ntr</strong> (<em>int</em>) – Number of points in binary tree.</p></li>
+<li><p><strong>ttn</strong> (<em>2D numpy array</em>) – Current travel time at all points in the grid (0 for far points).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>nsts, btg, ntr, ttn - Updated values of parameters nsts, btg, ntr and ttn.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D numpy array of type int, 2D numpy array of type int, int, 2D numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.find_ray">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">find_ray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_dat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receiver</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rec_TTF</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subgrid_size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#find_ray"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.find_ray" title="Permalink to this definition"></a></dt>
+<dd><p>Finds a ray path using the travel time field with the receiver as the source. The travel time field is calculated on a finer grid than the original grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dnx</strong> (<em>float</em>) – Distance between points on the original grid.</p></li>
+<li><p><strong>velocity_dat</strong> (<em>2D numpy array</em>) – Group velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>source</strong> (<em>array</em><em> of </em><em>length 2</em>) – indices for the coordinates of the source on the original grid i.e [i, j].</p></li>
+<li><p><strong>receiver</strong> (<em>array</em><em> of </em><em>length 2</em>) – indices of the coordinates of the receiver on the original grid.</p></li>
+<li><p><strong>rec_TTF</strong> (<em>2D numpy array</em>) – Travel time field with the receiver as the source on the finer grid.</p></li>
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – 2D numpy array for the anisotropic orientation of all grid points on the original grid.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of all grid points on the original grid(0 if using stiffness tensors and density, otherwise index for column in velocity_dat).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Value used for scaling velocities at all grid points on the original grid (mainly used for isotropic materials).</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type int64</em>) – Material parameters with first two indices being the i,j coordinates and the third being the index of the material parameter(c_22, c_23, c_33, c_44, density). Stiffness tensors must be in MPa to avoid overflow errors.</p></li>
+<li><p><strong>subgrid_size</strong> (<em>int</em>) – The size increase from the original grid to the finer grid.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ray_x, ray_y, travel_time - Arrays for the x and y indices of the points on the ray path and the travel time along the ray.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1D numpy array, 1D numpy array, float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.finer_grid_n">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">finer_grid_n</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">int32</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#finer_grid_n"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.finer_grid_n" title="Permalink to this definition"></a></dt>
+<dd><p>Function for creating a finer grid for a 2D array. Values at each point is the same as the closest point in the original grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Array that finer grid is created from.</p></li>
+<li><p><strong>scale</strong> (<em>Odd integer</em>) – How much the grid size is increased by in each direction.</p></li>
+<li><p><strong>dtype</strong> (<em>data type</em>) – Data type of the new array. Since function uses numba njit, dtype must be from numba. Default is numba.int32</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>2D numpy array: Finer grid.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D numpy array of type dtype</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.finer_grid_n_2">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">finer_grid_n_2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#finer_grid_n_2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.finer_grid_n_2" title="Permalink to this definition"></a></dt>
+<dd><p>Function for creating a finer grid from a 3D array of material parameters (c_22, c_23, c_33, c_44, density). If None is input None is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>3D numpy array</em><em> of </em><em>type int64</em>) – Material parameters with first two indices being the i,j coordinates and the third being the index of the material parameter in order (c_22, c_23, c_33, c_44, density)</p></li>
+<li><p><strong>scale</strong> (<em>Odd integer</em>) – How much the grid size is increased by.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Material parameters at all points in the finer grid. None if data=None</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>3D numpy array of type int64</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.fouds18_A">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">fouds18_A</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ttn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nnz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avlist2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#fouds18_A"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.fouds18_A" title="Permalink to this definition"></a></dt>
+<dd><p>Finite difference method for calculating first arrival travel time at iz, ix from travel times of surrounding points with travel time estimates (not all points have an assigned travel time. Uses finite difference method from Anisotropic Multi-Stencil Fast Marching Method (from tant et al 2020 (Effective grain orientation mapping ….)).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iz</strong> (<em>int</em>) – z index of point being updated.</p></li>
+<li><p><strong>ix</strong> (<em>int</em>) – x index of point being updated.</p></li>
+<li><p><strong>nsts</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Node status for points in the array. -1 is for unknown point, if point is still in the heap then value is the position in the tree.</p></li>
+<li><p><strong>ttn</strong> (<em>2D numpy array</em>) – Current travel time at all points in the grid (0 for far points).</p></li>
+<li><p><strong>dnx</strong> (<em>float</em>) – Distance between points in the grid in the x direction.</p></li>
+<li><p><strong>dnz</strong> (<em>float</em>) – Distance between points in the grid in the z direction.</p></li>
+<li><p><strong>nnx</strong> (<em>int</em>) – Number of points in the grid in the x direction.</p></li>
+<li><p><strong>nnz</strong> (<em>int</em>) – Number of points in the grid in the z direction.</p></li>
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic orientation of all grid points.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of all grid points (0 if using stiffness tensors and density, otherwise index for column in avlist2).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Values used for scaling velocities at all grid points (mainly used for isotropic materials).</p></li>
+<li><p><strong>avlist2</strong> (<em>2D numpy array</em>) – Group velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type np.int64</em>) – Material parameters with first two indices being the i,j coordinates and the third being the index of the material parameter(c_22, c_23, c_33, c_44, density). Stiffness tensors must be in MPa to avoid overflow errors.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Travel time estimate at the point iz, ix.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.group_vel">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">group_vel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_22</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_23</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_33</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_44</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#group_vel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.group_vel" title="Permalink to this definition"></a></dt>
+<dd><p>Function for the group velocity from material properties w.r.t group angle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>angle</strong> (<em>float</em>) – Effective group angle (0-180)</p></li>
+<li><p><strong>c_22</strong> (<em>int</em>) – Stifness parameter in MPa.</p></li>
+<li><p><strong>c_23</strong> (<em>int</em>) – Stifness parameter in MPa.</p></li>
+<li><p><strong>c_33</strong> (<em>int</em>) – Stifness parameter in MPa.</p></li>
+<li><p><strong>c_44</strong> (<em>int</em>) – Stifness parameter in MPa.</p></li>
+<li><p><strong>sigma</strong> (<em>int</em>) – Density in Kg/m^3</p></li>
+<li><p><strong>vel_scale</strong> (<em>float</em>) – Velocity scaling parameter, default is 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Group velocity</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.min_max_vel">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">min_max_vel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">group_vel_table</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#min_max_vel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.min_max_vel" title="Permalink to this definition"></a></dt>
+<dd><p>Function for determining the min / max velocity in a model to check if model is input correctly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic material orientations at grid points. Set as array of zero if using isotropic materials.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of each grid point (0 if using stiffness tensors and density, otherwise index for column in velocity table).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Values used to scaling velocity for each grid point. Use array of ones for anisotropic materials, or array of velocities for isotropic materials (using material with velocity curve with velocity of 1) . If unused then an array of ones is used.</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type np.int64</em>) – Stiffness tensors at each grid point. First two indices are the position of the grid point and 3rd index is for the materials parameters, 0 - c_22, 1 - c_23, 2 - c_33, 3 - c_44, 4 - density. Array must use 64 bit integers with stiffness tensors in MPa and density in Kg/m^3. To use these values the material index of grid points should be 0. If a point is not using stiffness tensors and density the values are not used. If parameter not used, velocity curves will be used instead (don’t set material index to 0).</p></li>
+<li><p><strong>group_vel_table</strong> (<em>2D numpy array</em>) – Group velocity curves with first column giving the angle (0-360 with increments of 1 degree) and other columns group velocities for each material(column is material indecies). If parameter is unused then defalts to velocity curve for isotropic material with velocity of 1(use vel_map to scale curve to set velocities at each point)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>min_vel, max_vel. The minimum and maximum velocity in a model</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.parallel_TTF">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">parallel_TTF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queue1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ttn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_dat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase_vel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gox</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">goz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nnz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_mem</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#parallel_TTF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.parallel_TTF" title="Permalink to this definition"></a></dt>
+<dd><p>Function used in class for calculating travel time fields in parallel. All variables which remain unchanged for different sources are used to initialise the process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>queue1</strong> (<em>multiprocessing Queue</em>) – Queue used for receiving jobs to complete from the main process.</p></li>
+<li><p><strong>queue2</strong> (<em>multiprocessing Queue</em>) – Queue used for returning completed jobs back to the main process.</p></li>
+<li><p><strong>nsts</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Node status for points in the array. -1 is for unknown point, if point is still in the heap then value is the position in the tree. Should have values of -1 for start.</p></li>
+<li><p><strong>btg</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Positions of points in the min heap.</p></li>
+<li><p><strong>ntr</strong> (<em>int</em>) – Number of points in binary tree. Should start with 0.</p></li>
+<li><p><strong>ttn</strong> (<em>2D numpy array</em>) – Current travel time at all points in the grid (0 for far points).</p></li>
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic orientation of all grid points.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of all grid points (0 if using stiffness tensors and density, otherwise index for column in velocity_dat.</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Value used for scaling velocities at all grid points (mainly used for isotropic materials).</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type np.int64</em>) – Material parameters with first two indices being the i,j coordinates and the third being the index of the material parameter(c_22, c_23, c_33, c_44, density). Stiffness tensors must be in MPa to avoid overflow errors.</p></li>
+<li><p><strong>velocity_dat</strong> (<em>2D numpy array</em>) – Group velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>phase_vel</strong> (<em>2D numpy array</em>) – Phase velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>gox</strong> (<em>float</em>) – x position of the point with indices (0, 0).</p></li>
+<li><p><strong>goz</strong> (<em>float</em>) – z position of the point with indices (0, 0).</p></li>
+<li><p><strong>dnx</strong> (<em>float</em>) – Distance between points in the grid in the x direction.</p></li>
+<li><p><strong>dnz</strong> (<em>float</em>) – Distance between points in the grid in the z direction. Must equal dnx.</p></li>
+<li><p><strong>nnx</strong> (<em>int</em>) – Number of points in the grid in the x direction.</p></li>
+<li><p><strong>nnz</strong> (<em>int</em>) – Number of points in the grid in the z direction.</p></li>
+<li><p><strong>low_mem</strong> (<em>bool</em>) – Parameter used when there are issues with insufficient memory. If True then saves travel time fields to the current directory as “temp_TTF_i.npy” for source index i.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Does not return anything. Process should be terminated by main process when finished.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.parallel_TTF_finer_grid">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">parallel_TTF_finer_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queue1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subgrid_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_dat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase_vel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gox</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">goz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">low_mem</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#parallel_TTF_finer_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.parallel_TTF_finer_grid" title="Permalink to this definition"></a></dt>
+<dd><p>Function used in class for calculating travel time fields in parallel. All variables which remain unchanged for different sources are used to initialise the process.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>queue1</strong> (<em>multiprocessing Queue</em>) – Queue used for receiving jobs to complete from the main process.</p></li>
+<li><p><strong>queue2</strong> (<em>multiprocessing Queue</em>) – Queue used for returning completed jobs back to the main process.</p></li>
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic orientation of all grid points.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of all grid points (0 if using stiffness tensors and density, otherwise index for column in velocity_dat).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Value used for scaling velocities at all grid points (mainly used for isotropic materials).</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type np.int64</em>) – Material parameters with first two indices being the i,j coordinates and the third being the index of the material parameter(c_22, c_23, c_33, c_44, density).</p></li>
+<li><p><strong>subgrid_size</strong> (<em>int</em>) – The size increase of the finer grid. Must be an odd integer so that points match in the original and finer grid.</p></li>
+<li><p><strong>velocity_dat</strong> (<em>2D numpy array</em>) – Group velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>phase_vel</strong> (<em>2D numpy array</em>) – Phase velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>gox</strong> (<em>float</em>) – x position of the point with indices (0, 0).</p></li>
+<li><p><strong>goz</strong> (<em>float</em>) – z position of the point with indices (0, 0).</p></li>
+<li><p><strong>dnx</strong> (<em>float</em>) – Distance between points in the grid in the x direction.</p></li>
+<li><p><strong>dnz</strong> (<em>float</em>) – Distance between points in the grid in the z direction. Must equal dnx.</p></li>
+<li><p><strong>low_mem</strong> (<em>bool</em>) – Parameter used when there are issues with insufficient memory. If True then saves travel time fields to the current directory as “temp_TTF_i.npy” for source index i.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Does not return anything. Process should be terminated by main process when finished.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.parallel_TTF_rays">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">parallel_TTF_rays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proc_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queue2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trans_pairs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subgrid_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_dat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase_vel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gox</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">goz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_trans_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_trans_z</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#parallel_TTF_rays"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.parallel_TTF_rays" title="Permalink to this definition"></a></dt>
+<dd><p>Function used in class for calculating travel time fields and ray paths in parallel. All variables which remain unchanged for different sources are used to initialise the process. Uses queue2 with return codes for telling main process when a travel time field is completed and for returning ray paths.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>proc_num</strong> (<em>int</em>) – Process number.</p></li>
+<li><p><strong>queue1</strong> (<em>multiprocessing Queue</em>) – Queue used for receiving jobs to complete from the main process.</p></li>
+<li><p><strong>queue2</strong> (<em>multiprocessing Queue</em>) – Queue used for telling main process a travel time field has been calculated or for sending ray paths to main process (using return codes 0 for TTF and 1 for ray).</p></li>
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic orientation of all grid points.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of all grid points (0 if using stiffness tensors and density, otherwise index for column in velocity_dat).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Value used for scaling velocities at all grid points (mainly used for isotropic materials).</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type int64</em>) – Material parameters with first two indices being the i,j coordinates and the third being the index of the material parameter(c_22, c_23, c_33, c_44, density).</p></li>
+<li><p><strong>subgrid_size</strong> (<em>int</em>) – The size increase of the finer grid. Must be an odd integer so that points match in the original and finer grid.</p></li>
+<li><p><strong>velocity_dat</strong> (<em>2D numpy array</em>) – Group velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>phase_vel</strong> (<em>2D numpy array</em>) – Phase velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>gox</strong> (<em>float</em>) – x position of the point with indices (0, 0).</p></li>
+<li><p><strong>goz</strong> (<em>float</em>) – z position of the point with indices (0, 0).</p></li>
+<li><p><strong>dnx</strong> (<em>float</em>) – Distance between points in the grid in the x direction.</p></li>
+<li><p><strong>scx</strong> (<em>1D numpy array</em>) – Array for x coordinates for transducers.</p></li>
+<li><p><strong>scz</strong> (<em>1D numpy array</em>) – Array for z coordinates for transducers.</p></li>
+<li><p><strong>new_trans_x</strong> (<em>1D numpy array</em>) – Array for x coordinates for transducers on finer grid using grid coordinates.</p></li>
+<li><p><strong>new_trans_z</strong> (<em>1D numpy array</em>) – Array for z coordinates for transducers on finer grid using grid coordinates.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Does not return anything. Process should be terminated by main process when finished.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.ray_time">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">ray_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ray_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ray_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subgrid_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_dat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#ray_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.ray_time" title="Permalink to this definition"></a></dt>
+<dd><p>Determine the travel time along a ray path by integrating along the path.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ray_x</strong> (<em>1D numpy array</em>) – x indices of the points in the ray path on the finer grid.</p></li>
+<li><p><strong>ray_y</strong> (<em>1D numpy array</em>) – y indices of the points in the ray path on the finer grid.</p></li>
+<li><p><strong>dnx</strong> (<em>float</em>) – Distance between points on the original grid.</p></li>
+<li><p><strong>subgrid_size</strong> (<em>int</em>) – Size that the original grid was increased by to obtain the finer grid (odd integer)</p></li>
+<li><p><strong>velocity_dat</strong> (<em>2D numpy array</em>) – Group velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic orientation of all grid points on the original grid.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of all grid points on the original grid (0 if using stiffness tensors and density, otherwise index for column in velocity_dat).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Value used for scaling velocities at all grid points on the original grid (mainly used for isotropic materials).</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type int64</em>) – 3D numpy array of type int64 of material parameters with first two indices being the i,j coordinates and the third being the index of the material parameter(c_22, c_23, c_33, c_44, density). Stiffness tensors must be in MPa to avoid overflow errors.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Travel time along ray path</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.slown_d_slown_stif">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">slown_d_slown_stif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_22</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_23</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_33</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_44</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#slown_d_slown_stif"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.slown_d_slown_stif" title="Permalink to this definition"></a></dt>
+<dd><p>Function for returning the first derivative of the group velocity from material properties w.r.t group angle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>angle</strong> (<em>float</em>) – Effective group angle (0-180)</p></li>
+<li><p><strong>c_22</strong> (<em>int</em>) – Stifness parameter in MPa.</p></li>
+<li><p><strong>c_23</strong> (<em>int</em>) – Stifness parameter in MPa.</p></li>
+<li><p><strong>c_33</strong> (<em>int</em>) – Stifness parameter in MPa.</p></li>
+<li><p><strong>c_44</strong> (<em>int</em>) – Stifness parameter in MPa.</p></li>
+<li><p><strong>sigma</strong> (<em>int</em>) – Density in Kg/m^3</p></li>
+<li><p><strong>vel_scale</strong> (<em>float</em>) – Velocity scaling parameter</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Derivative of group velocity</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.time_between_points">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">time_between_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subgrid_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity_dat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#time_between_points"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.time_between_points" title="Permalink to this definition"></a></dt>
+<dd><p>Finds the travel time of a straight ray between two points on a finer grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x1</strong> (<em>float</em>) – x index of the starting position on the finer grid. Does not need to be an integer value.</p></li>
+<li><p><strong>x2</strong> (<em>float</em>) – x index of the end position on the finer grid. Does not need to be an integer value.</p></li>
+<li><p><strong>y1</strong> (<em>float</em>) – y index of the starting position on the finer grid. Does not need to be an integer value.</p></li>
+<li><p><strong>y2</strong> (<em>float</em>) – y index of the end position on the finer grid. Does not need to be an integer value.</p></li>
+<li><p><strong>dnx</strong> (<em>float</em>) – Distance between grid points on the original grid.</p></li>
+<li><p><strong>subgrid_size</strong> (<em>int</em>) – Odd integer for the size that the original grid was increased by to obtain the finer grid.</p></li>
+<li><p><strong>velocity_dat</strong> (<em>2D numpy array</em>) – Group velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic orientation of all grid points on the original grid.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of all grid points on the original grid (0 if using stiffness tensors and density, otherwise index for column in velocity_dat).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Value used for scaling velocities at all grid points on the original grid (mainly used for isotropic materials).</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type int64</em>) – Material parameters with first two indices being the i,j coordinates and the third being the index of the material parameter(c_22, c_23, c_33, c_44, density). Stiffness tensors must be in MPa to avoid overflow errors.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Travel time of straight ray.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.travel">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">travel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ttn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avlist2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase_vel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gox</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">goz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nnz</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#travel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.travel" title="Permalink to this definition"></a></dt>
+<dd><p>Function for calculating a travel time field for a given source.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scx</strong> (<em>float</em>) – x position of the source (gets rounded to the nearest grid point in this implementation).</p></li>
+<li><p><strong>scz</strong> (<em>float</em>) – z position of the source (gets rounded to the nearest grid point in this implementation).</p></li>
+<li><p><strong>nsts</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Node status for points in the array. -1 is for unknown point, if point is still in the heap then value is the position in the tree.</p></li>
+<li><p><strong>btg</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Positions of points in the min heap (start with empty binary tree).</p></li>
+<li><p><strong>ntr</strong> (<em>int</em>) – Number of points in the minimum heap.</p></li>
+<li><p><strong>ttn</strong> (<em>2D numpy array</em>) – Current travel time at all points in the grid. Start with 2D array of zeros</p></li>
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic orientation of all grid points. For isotropic material this parameter will not affect anything.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of all grid points (0 if using stiffness tensors and density, otherwise index for column in avlist2).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Value used for scaling velocities at all grid points (mainly used for isotropic materials).</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type np.int64</em>) – Material parameters with first two indices being the i,j coordinates and the third being the index of the material parameter(c_22, c_23, c_33, c_44, density). Stiffness tensors must be in MPa to avoid overflow errors.</p></li>
+<li><p><strong>avlist2</strong> (<em>2D numpy array</em>) – Group velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>phase_vel</strong> (<em>2D numpy array</em>) – Phase velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>gox</strong> (<em>float</em>) – x position of the point with indices (0, 0).</p></li>
+<li><p><strong>goz</strong> (<em>float</em>) – z position of the point with indices (0, 0).</p></li>
+<li><p><strong>dnx</strong> (<em>float</em>) – Distance between points in the grid in the x direction.</p></li>
+<li><p><strong>dnz</strong> (<em>float</em>) – Distance between points in the grid in the z direction.</p></li>
+<li><p><strong>nnx</strong> (<em>int</em>) – Number of points in the grid in the x direction.</p></li>
+<li><p><strong>nnz</strong> (<em>int</em>) – Number of points in the grid in the z direction.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Travel time field for the given source.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.travel_finer_grid">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">travel_finer_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">veln0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subgrid_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avlist2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase_vel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gox</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">goz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnz</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#travel_finer_grid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.travel_finer_grid" title="Permalink to this definition"></a></dt>
+<dd><p>Function for calculating a travel time field for a given source on a finer grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scx</strong> (<em>float</em>) – x position of the source (gets rounded to the nearest grid point in this implementation).</p></li>
+<li><p><strong>scz</strong> (<em>float</em>) – z position of the source (gets rounded to the nearest grid point in this implementation).</p></li>
+<li><p><strong>veln0</strong> (<em>2D numpy array</em>) – Anisotropic orientation of all grid points on the original grid (not finer grid).</p></li>
+<li><p><strong>velpn0</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of all grid points on the original grid (not finer grid). Values are 0 if using stiffness tensors and density, otherwise index for column in avlist2.</p></li>
+<li><p><strong>vel_map0</strong> (<em>2D numpy array</em>) – Value used for scaling velocities at all grid points on the original grid (not finer grid). This is mainly used for isotropic materials.</p></li>
+<li><p><strong>stif_den0</strong> (<em>3D numpy array</em><em> of </em><em>type int64</em>) – Material parameters with first two indices being the i,j coordinates and the third being the index of the material parameter(c_22, c_23, c_33, c_44, density). Stiffness tensors must be in MPa to avoid overflow errors.</p></li>
+<li><p><strong>subgrid_size</strong> (<em>int</em>) – The size increase of the finer grid. Must be an odd integer so that points match in the original and finer grid.</p></li>
+<li><p><strong>avlist2</strong> (<em>2D numpy array</em>) – Group velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>phase_vel</strong> (<em>2D numpy array</em>) – Phase velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>gox</strong> (<em>float</em>) – x position of the point with indices (0, 0).</p></li>
+<li><p><strong>goz</strong> (<em>float</em>) – z position of the point with indices (0, 0).</p></li>
+<li><p><strong>dnx</strong> (<em>float</em>) – Distance between points in the grid in the x direction.</p></li>
+<li><p><strong>dnz</strong> – Distance between points in the grid in the z direction. Must equal dnx.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Travel time field for the required source on the finer grid.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.travel_times">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">travel_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ray_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ray_y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#travel_times"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.travel_times" title="Permalink to this definition"></a></dt>
+<dd><p>Splits a ray path up into smaller sections such that we have a point every time we change direction or change between grid cells.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ray_x</strong> (<em>1D numpy array</em>) – x indices of the points in the ray path.</p></li>
+<li><p><strong>ray_y</strong> (<em>1D numpy array</em>) – y indices of the points in the ray path.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ray_x, ray_y - arrays of the x and y indices of ray path which has been split up.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D numpy array, 2D numpy array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.update">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">veln</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velpn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ttn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nnz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nnx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase_vel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stif_den</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.update" title="Permalink to this definition"></a></dt>
+<dd><p>Our finite difference method for calculating first arrival travel time at point with indices iz, ix from travel times at surrounding points with travel time estimates (not all points have an associated travel time).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>veln</strong> (<em>2D numpy array</em>) – Anisotropic orientation of all grid points.</p></li>
+<li><p><strong>velpn</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Material index of all grid points (0 if using stiffness tensors and density, otherwise index for column in velocity table).</p></li>
+<li><p><strong>vel_map</strong> (<em>2D numpy array</em>) – Value used for scaling velocities at all grid points (mainly used for isotropic materials).</p></li>
+<li><p><strong>nsts</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Node status for points in the array. -1 is for unknown point, if point is still in the heap then value is the position in the tree.</p></li>
+<li><p><strong>ttn</strong> (<em>2D numpy array</em>) – Current travel time at all points in the grid (0 for far points).</p></li>
+<li><p><strong>iz</strong> (<em>int</em>) – z index of point where finite difference is applied.</p></li>
+<li><p><strong>ix</strong> (<em>int</em>) – x index of point where finite difference is applied.</p></li>
+<li><p><strong>dnx</strong> (<em>float</em>) – Distance between points in the grid in the x/z direction.</p></li>
+<li><p><strong>nnz</strong> (<em>int</em>) – Number of points in the grid in the z direction.</p></li>
+<li><p><strong>nnx</strong> (<em>int</em>) – Number of points in the grid in the x direction.</p></li>
+<li><p><strong>phase_vel</strong> (<em>2D numpy array</em>) – Phase velocity of materials at different angles (column 0 is angle i.e 0-360 and other columns are velocity for that angle).</p></li>
+<li><p><strong>stif_den</strong> (<em>3D numpy array</em><em> of </em><em>type np.int64</em>) – Material parameters with first two indices being the i,j coordinates and the third being the index of the material parameter(c_22, c_23, c_33, c_44, density). Stiffness tensors must be in MPa to avoid overflow errors.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Travel time estimate at the point iz, ix.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.updtree">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">updtree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ttn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#updtree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.updtree" title="Permalink to this definition"></a></dt>
+<dd><p>Updates the value of a point in a min heap and and filters value to new position in binary tree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iz</strong> (<em>int</em>) – z index of point being updated.</p></li>
+<li><p><strong>ix</strong> (<em>int</em>) – x index of point being updated.</p></li>
+<li><p><strong>nsts</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Node status for points in the array. -1 is for unknown point, if point is still in the heap then value is the position in the tree.</p></li>
+<li><p><strong>btg</strong> (<em>2D numpy array</em><em> of </em><em>type int</em>) – Positions of points in the min heap.</p></li>
+<li><p><strong>ttn</strong> (<em>2D numpy array</em>) – Current travel time at all points in the grid (0 for far points).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>nsts, btg - Updated values of parameters nsts and btg.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2D numpy array of type int, 2D numpy array of type int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Anis_TTF_rays.wavefront_angle_dist">
+<span class="sig-prename descclassname"><span class="pre">Anis_TTF_rays.</span></span><span class="sig-name descname"><span class="pre">wavefront_angle_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Anis_TTF_rays.html#wavefront_angle_dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Anis_TTF_rays.wavefront_angle_dist" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the direction of the normal to the wavefront and the minimum distance between the estimated wavefront and the point we are calculating the travel time for. Stencils have points A, B, C where A&lt;=B&lt;C and the estimated wavefront goes through B.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ix</strong> (<em>int</em>) – Index of the x position at the point where we are estimating a travel time.</p></li>
+<li><p><strong>iz</strong> (<em>int</em>) – Index of the z position at the point where we are estimating a travel time.</p></li>
+<li><p><strong>x1</strong> (<em>int</em>) – Index of the x position at the point with label A.</p></li>
+<li><p><strong>x2</strong> (<em>int</em>) – Index of the x position at the point with label B.</p></li>
+<li><p><strong>x3</strong> (<em>int</em>) – Index of the x position at the point with label C.</p></li>
+<li><p><strong>z1</strong> (<em>int</em>) – Index of the z position at the point with label A.</p></li>
+<li><p><strong>z2</strong> (<em>int</em>) – Index of the z position at the point with label B.</p></li>
+<li><p><strong>z3</strong> (<em>int</em>) – Index of the z position at the point with label C.</p></li>
+<li><p><strong>y1</strong> (<em>float</em>) – Travel time estimate at the point with label A.</p></li>
+<li><p><strong>y2</strong> (<em>float</em>) – Travel time estimate at the point with label B.</p></li>
+<li><p><strong>y3</strong> (<em>float</em>) – Travel time estimate at the point with label C.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>angle, dist - The direction of the normal to the estimated wavefront and the minimum distance between the wavefront and the point we are estimating.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Anis_TTF_class.html" class="btn btn-neutral float-left" title="ALI-FMM and Ray Tracing Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="JupyterNotebook.html" class="btn btn-neutral float-right" title="Jupyter Notebook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, James Ludlam.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
