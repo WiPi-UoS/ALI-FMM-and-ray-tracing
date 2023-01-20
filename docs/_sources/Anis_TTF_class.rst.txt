@@ -1,0 +1,14 @@
+.. toctree::
+   :maxdepth: 3
+   :caption: Contents:
+
+.. _ALIFMMclass:
+
+ALI-FMM and Ray Tracing Class
+=============================
+   
+.. autoclass:: Anis_TTF_rays.ALI_FMM
+   :members:
+   :show-inheritance:
+	  
+      .. automethod:: Anis_TTF_rays.ALI_FMM.__init__
