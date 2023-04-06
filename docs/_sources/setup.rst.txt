@@ -818,5 +818,36 @@ Calculating Ray Paths
 
 Ray paths can be calculated using :func:`~Anis_TTF_rays.ALI_FMM.find_all_TTF_rays` or in parrallel using :func:`~Anis_TTF_rays.ALI_FMM.find_all_TTF_rays_parallel`. These functions will calculate the nessessary travel time fields and perform ray tracing through them. The parameter ``trans_pairs`` defines which source reciever pairs have ray paths calculated. If ray paths are saved into the class they can be retrieved using the :func:`~Anis_TTF_rays.ALI_FMM.ray_path` function.
 
+.. tip::
+
+   Travel times of ray paths are identical when traveling forward or backwards along the ray. Swapping the source and receivers using the paramter ``trans_pairs`` so that less recievers are used will result in faster computation as less travel time fields are required.
+
+   .. collapse:: Example
+   
+      |
+   
+      Both values of ``trans_pairs`` use the same source/receiver pairs, however using a single reciever with three sources is computationally cheaper than one source and three receivers
+
+      +---+---+---+---+
+      | 0 | 0 | 0 | 0 |
+      +---+---+---+---+
+      | 1 | 0 | 0 | 0 |
+      +---+---+---+---+
+      | 1 | 0 | 0 | 0 |
+      +---+---+---+---+
+      | 1 | 0 | 0 | 0 |
+      +---+---+---+---+
+
+      +---+---+---+---+
+      | 0 | 1 | 1 | 1 |
+      +---+---+---+---+
+      | 0 | 0 | 0 | 0 |
+      +---+---+---+---+
+      | 0 | 0 | 0 | 0 |
+      +---+---+---+---+
+      | 0 | 0 | 0 | 0 |
+      +---+---+---+---+
+   
+   |
 
 
