@@ -4,4 +4,4 @@ Anisotropic Locally Interpolated Fast Marching Method (ALI-FMM) is a method for 
 Codes for running ALI-FMM and ray tracing for anisotropic materials including the Python module, Jupyter notebook and weld example. Documentation of the module is provded at https://wipi-uos.github.io/ALI-FMM-and-ray-tracing/.
 
 For more information please see
-'Travel times and ray paths for acoustic and elastic waves in generally anisotropic media', J Ludlam, K Tant, V Dolean, A Curtis - arXiv preprint arXiv:2302.10988, 2023 - arxiv.org
+Ludlam, J., Tant, K., Dolean, V., & Curtis, A. (2023). Travel times and ray paths for acoustic and elastic waves in generally anisotropic media. Journal of Computational Physics, 494, Article 112500. Advance online publication. https://doi.org/10.1016/j.jcp.2023.112500
